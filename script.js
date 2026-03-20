@@ -171,7 +171,7 @@ function showAnswer(selectedAnswer) {
   nextHotspot.classList.remove("hidden");
 
   stageKicker.textContent = isCorrect ? "Respuesta correcta" : "Respuesta revisada";
-  stageMarqueeTitle.textContent = "Toca la imagen para volver a elegir";
+  stageMarqueeTitle.textContent = "Usa el boton para regresar a las preguntas";
   playAnswerEffects(isCorrect);
   updateQuestionButtons();
   updateHud();
