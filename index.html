@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rompiendo Mitos 2</title>
+  <link rel="stylesheet" href="styles.css?v=20260318-2">
+</head>
+<body>
+  <main class="app-shell">
+    <img
+      class="app-expo-logo"
+      src="mitos recursos andru/LOGO.png"
+      alt="Expo Niñas y Niños Productores"
+    >
+
+    <section class="simple-shell" aria-label="Juego de verdadero o falso">
+      <section class="question-screen" id="questionScreen" aria-label="Selecciona una pregunta">
+        <img
+          class="question-screen__brand"
+          src="mitos recursos andru/MITOS.png"
+          alt="Rompiendo Mitos"
+        >
+
+        <div class="question-screen__card">
+          <div class="question-screen__copy">
+            <p class="brand-kicker">Juego interactivo</p>
+            <h1>Elige una pregunta para comenzar</h1>
+            <p class="controls-copy">Selecciona una lámina y luego responde tocando verdadero o falso dentro de la imagen.</p>
+          </div>
+
+          <div class="question-row">
+            <button class="question-card" type="button" data-round="0">
+              <span class="question-card__eyebrow">Pregunta</span>
+              <span class="question-card__number">1</span>
+            </button>
+
+            <button class="question-card" type="button" data-round="1">
+              <span class="question-card__eyebrow">Pregunta</span>
+              <span class="question-card__number">2</span>
+            </button>
+
+            <button class="question-card is-locked" type="button" disabled aria-disabled="true">
+              <span class="question-card__eyebrow">Pregunta</span>
+              <span class="question-card__number">3</span>
+            </button>
+
+            <button class="question-card is-locked" type="button" disabled aria-disabled="true">
+              <span class="question-card__eyebrow">Pregunta</span>
+              <span class="question-card__number">4</span>
+            </button>
+
+            <button class="question-card is-locked" type="button" disabled aria-disabled="true">
+              <span class="question-card__eyebrow">Pregunta</span>
+              <span class="question-card__number">5</span>
+            </button>
+
+            <button class="question-card is-locked" type="button" disabled aria-disabled="true">
+              <span class="question-card__eyebrow">Pregunta</span>
+              <span class="question-card__number">6</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="game-screen hidden" id="gameScreen" aria-label="Juego de verdadero o falso">
+        <header class="simple-header">
+          <div>
+            <p class="brand-kicker">Rompiendo Mitos</p>
+            <h1>Verdadero o falso</h1>
+          </div>
+
+          <div class="score-card" aria-live="polite">
+            <span id="progressLabel">Elige una pregunta</span>
+            <strong id="scoreLabel">Puntaje: 0</strong>
+          </div>
+        </header>
+
+        <div class="play-panel__topline">
+          <span class="play-badge" id="stageKicker">Pregunta activa</span>
+          <p class="play-status" id="stageMarqueeTitle">Mira la lámina y responde</p>
+        </div>
+
+        <div class="stage-frame" id="stageFrame">
+          <div class="stage" id="stage">
+            <div class="welcome-screen hidden" id="stageWelcome">
+              <p class="welcome-screen__kicker">Inicio</p>
+              <h2>La imagen será la protagonista</h2>
+              <p>Elige una pregunta arriba y luego responde tocando Verdadero o Falso dentro de la lámina.</p>
+            </div>
+
+            <img id="stageImage" class="stage-image hidden" alt="Pregunta actual del juego">
+
+            <div id="burst" class="burst hidden" aria-hidden="true">
+              <span class="burst-core"></span>
+              <span class="spark spark-1"></span>
+              <span class="spark spark-2"></span>
+              <span class="spark spark-3"></span>
+              <span class="spark spark-4"></span>
+              <span class="spark spark-5"></span>
+              <span class="spark spark-6"></span>
+            </div>
+
+            <button
+              id="trueHotspot"
+              class="hotspot hidden"
+              type="button"
+              aria-label="Seleccionar verdadero"
+            ></button>
+            <button
+              id="falseHotspot"
+              class="hotspot hidden"
+              type="button"
+              aria-label="Seleccionar falso"
+            ></button>
+            <button
+              id="nextHotspot"
+              class="next-hotspot hidden"
+              type="button"
+              aria-label="Volver a elegir una pregunta"
+            >
+              <span class="next-hotspot__eyebrow">Siguiente paso</span>
+              <span class="next-hotspot__label">Regresar a las preguntas</span>
+            </button>
+          </div>
+
+          <div class="stage-actions" id="stageActions" aria-live="polite"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js?v=20260318-2"></script>
+</body>
+</html>
