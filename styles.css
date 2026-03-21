@@ -285,11 +285,21 @@ body.is-question-active .app-expo-logo {
 }
 
 .stage-frame {
+  position: relative;
   padding: 10px;
   border-radius: 24px;
   background: linear-gradient(180deg, rgba(255, 248, 246, 0.92), rgba(255, 235, 231, 0.9));
   border: 1px solid rgba(255, 223, 214, 0.18);
   box-shadow: var(--shadow);
+}
+
+.stage-actions {
+  display: none;
+}
+
+.stage-actions.is-active {
+  display: block;
+  padding: 12px 4px 4px;
 }
 
 .stage {
@@ -695,6 +705,44 @@ body.is-question-active .app-expo-logo {
   .question-screen__brand {
     top: 8px;
     width: clamp(220px, 58vw, 320px);
+  }
+
+  .stage-frame {
+    padding-bottom: 12px;
+  }
+
+  .stage-actions.is-active {
+    display: flex;
+    justify-content: center;
+  }
+
+  .stage-actions .next-hotspot {
+    position: static;
+    width: 100%;
+    max-width: none;
+    padding: 12px 18px 14px 74px;
+    border-radius: 18px;
+    transform: none;
+  }
+
+  .stage-actions .next-hotspot:hover,
+  .stage-actions .next-hotspot:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  .stage-actions .next-hotspot::before {
+    left: 16px;
+    width: 44px;
+    height: 44px;
+    font-size: 1.7rem;
+  }
+
+  .stage-actions .next-hotspot::after {
+    left: 52px;
+  }
+
+  .stage-actions .next-hotspot__label {
+    font-size: 1rem;
   }
 
   .next-hotspot {
