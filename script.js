@@ -21,6 +21,9 @@ const rounds = [
 
 const questionScreen = document.querySelector("#questionScreen");
 const gameScreen = document.querySelector("#gameScreen");
+const stageFrame = document.querySelector("#stageFrame");
+const stageActions = document.querySelector("#stageActions");
+const stage = document.querySelector("#stage");
 const stageWelcome = document.querySelector("#stageWelcome");
 const stageImage = document.querySelector("#stageImage");
 const trueHotspot = document.querySelector("#trueHotspot");
@@ -33,6 +36,7 @@ const stageKicker = document.querySelector("#stageKicker");
 const stageMarqueeTitle = document.querySelector("#stageMarqueeTitle");
 const questionButtons = document.querySelectorAll(".question-card[data-round]");
 const debugHotspots = new URLSearchParams(window.location.search).has("debug-hotspots");
+const mobileLayoutQuery = window.matchMedia("(max-width: 640px)");
 
 let currentRound = null;
 let score = 0;
@@ -90,6 +94,18 @@ function updateHud() {
   scoreLabel.textContent = `Puntaje: ${score}`;
 }
 
+function syncNextHotspotPlacement() {
+  const targetParent = mobileLayoutQuery.matches ? stageActions : stage;
+
+  if (nextHotspot.parentElement !== targetParent) {
+    targetParent.appendChild(nextHotspot);
+  }
+
+  const shouldShowMobileAction = mobileLayoutQuery.matches && !nextHotspot.classList.contains("hidden");
+  stageActions.classList.toggle("is-active", shouldShowMobileAction);
+  stageFrame.classList.toggle("has-mobile-action", shouldShowMobileAction);
+}
+
 function showQuestionScreen() {
   document.body.classList.remove("is-question-active");
   questionScreen.classList.remove("hidden");
@@ -114,6 +130,7 @@ function showWelcome() {
   nextHotspot.classList.add("hidden");
   stageKicker.textContent = "Listo para jugar";
   stageMarqueeTitle.textContent = "Elige una pregunta";
+  syncNextHotspotPlacement();
   updateQuestionButtons();
   updateHud();
 }
@@ -145,6 +162,7 @@ function renderRound() {
 
   stageKicker.textContent = "Pregunta activa";
   stageMarqueeTitle.textContent = `Pregunta ${currentRound + 1}`;
+  syncNextHotspotPlacement();
   updateQuestionButtons();
   updateHud();
 }
@@ -169,6 +187,7 @@ function showAnswer(selectedAnswer) {
   trueHotspot.classList.add("hidden");
   falseHotspot.classList.add("hidden");
   nextHotspot.classList.remove("hidden");
+  syncNextHotspotPlacement();
 
   stageKicker.textContent = isCorrect ? "Respuesta correcta" : "Respuesta revisada";
   stageMarqueeTitle.textContent = "Usa el boton para regresar a las preguntas";
@@ -196,6 +215,7 @@ function goNext() {
 trueHotspot.addEventListener("click", () => handleAnswer(true));
 falseHotspot.addEventListener("click", () => handleAnswer(false));
 nextHotspot.addEventListener("click", goNext);
+mobileLayoutQuery.addEventListener("change", syncNextHotspotPlacement);
 
 questionButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -203,4 +223,5 @@ questionButtons.forEach((button) => {
   });
 });
 
+syncNextHotspotPlacement();
 showWelcome();
