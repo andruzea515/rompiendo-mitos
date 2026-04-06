@@ -110,7 +110,7 @@ body.is-question-active .app-expo-logo {
 .question-screen__brand {
   position: absolute;
   left: 50%;
-  top: 8px;
+  top: -38px;
   transform: translateX(-50%);
   width: clamp(320px, 34vw, 520px);
   height: auto;
@@ -946,7 +946,7 @@ body.is-question-active .app-expo-logo {
   }
 
   .question-screen__brand {
-    top: 10px;
+    top: -24px;
     width: clamp(240px, 42vw, 360px);
   }
 
@@ -1002,7 +1002,7 @@ body.is-question-active .app-expo-logo {
   }
 
   .question-screen__brand {
-    top: 8px;
+    top: -18px;
     width: clamp(220px, 58vw, 320px);
   }
 
