@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rompiendo Mitos 2</title>
-  <link rel="stylesheet" href="styles.css?v=20260318-2">
+  <link rel="stylesheet" href="styles.css?v=20260406-1">
 </head>
 <body>
   <main class="app-shell">
@@ -29,37 +29,7 @@
             <p class="controls-copy">Selecciona una lámina y luego responde tocando verdadero o falso dentro de la imagen.</p>
           </div>
 
-          <div class="question-row">
-            <button class="question-card" type="button" data-round="0">
-              <span class="question-card__eyebrow">Pregunta</span>
-              <span class="question-card__number">1</span>
-            </button>
-
-            <button class="question-card" type="button" data-round="1">
-              <span class="question-card__eyebrow">Pregunta</span>
-              <span class="question-card__number">2</span>
-            </button>
-
-            <button class="question-card is-locked" type="button" disabled aria-disabled="true">
-              <span class="question-card__eyebrow">Pregunta</span>
-              <span class="question-card__number">3</span>
-            </button>
-
-            <button class="question-card is-locked" type="button" disabled aria-disabled="true">
-              <span class="question-card__eyebrow">Pregunta</span>
-              <span class="question-card__number">4</span>
-            </button>
-
-            <button class="question-card is-locked" type="button" disabled aria-disabled="true">
-              <span class="question-card__eyebrow">Pregunta</span>
-              <span class="question-card__number">5</span>
-            </button>
-
-            <button class="question-card is-locked" type="button" disabled aria-disabled="true">
-              <span class="question-card__eyebrow">Pregunta</span>
-              <span class="question-card__number">6</span>
-            </button>
-          </div>
+          <div class="question-row" id="questionRow" aria-live="polite"></div>
         </div>
       </section>
 
@@ -90,6 +60,8 @@
             </div>
 
             <img id="stageImage" class="stage-image hidden" alt="Pregunta actual del juego">
+
+            <div id="selectionPulse" class="selection-pulse hidden" aria-hidden="true"></div>
 
             <div id="burst" class="burst hidden" aria-hidden="true">
               <span class="burst-core"></span>
@@ -130,6 +102,6 @@
     </section>
   </main>
 
-  <script src="script.js?v=20260318-2"></script>
+  <script src="script.js?v=20260406-4"></script>
 </body>
 </html>
